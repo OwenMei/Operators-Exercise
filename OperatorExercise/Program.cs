@@ -13,15 +13,20 @@ namespace OperatorExercise
             Console.WriteLine($"{a} * {b} is " + (a * b));
             int quotient = a / b;
             int remainder = a % b;
-            Console.WriteLine($"{a}/{b} is {quotient} with a remainder of {remainder}");
+            if (a == 14 && b == 9)
+            {
+                Console.WriteLine($"{a}/{b} is {quotient} with a remainder of {remainder}");
+            }
+            
+
             Console.WriteLine("\n\n What is the radius of your circle?");
             var input = Console.ReadLine();
-            int radius = (input!=null) ?  int.Parse(input) : 1;
-            Console.WriteLine("The area of the circle is "+AreaOfCircle(radius));
+            int radius = (int.TryParse(input, out int rad)) ?  rad : 0;
+            Console.WriteLine($"The area of a circle with radius {radius} is "+AreaOfCircle(radius));
         }
         public static double AreaOfCircle(int radius)
         {
-            return(Math.PI * radius);
+            return(Math.PI * Math.Pow(radius,2));
         }
     }
 }
